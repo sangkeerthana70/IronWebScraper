@@ -23,26 +23,26 @@ namespace WebScraerWithIronWebScraper
 
             var testData = response.Css("#wsod_hotStocks > div.clearfix.wsod_StockHeader > div.wsod_fLeft > h1 ")[0].InnerHtml;
 
-            Console.WriteLine(testData);
-            foreach(HtmlNode stockData in response.Css("#wsod_hotStocks > table:nth-child(5)"))
+            foreach(HtmlNode stockData in response.Css("#wsod_hotStocks > table:nth-child(5) > tbody > tr").Skip(1))
             {
-                Console.WriteLine("in foreach");
                 Stock stock = new Stock();
 
-                foreach(var name in stockData.Css("a.wsod_symbol"))
-                {
-                    Console.WriteLine("in table data");
-                    stock.companyName = name.InnerText;
-                    Console.WriteLine("companyName " + stock.companyName);
-                }
+                stock.symbol = stockData.Css("td > a")[0].InnerText;
+                Console.WriteLine("symbol " + stock.symbol);
 
-                foreach(var price in stockData.Css(" "))
-                {
-                    stock.price = price.InnerHtml;
-                    Console.WriteLine("stockPrice " + stock.price);
-                }
+                string data = stockData.Css("td > span")[0].InnerText;
+                Console.WriteLine("data " + data);
 
-                //foreach(var )
+                string price = stockData.Css("td > span")[1].InnerText;
+                Console.WriteLine("price " + price);
+
+                string change = stockData.Css("td > span")[2].InnerText;
+                Console.WriteLine("change " + change);
+
+                string percentChange = stockData.Css("td > span")[3].InnerText;
+                Console.WriteLine("percentChange " + percentChange);
+
+
             }
 
             
