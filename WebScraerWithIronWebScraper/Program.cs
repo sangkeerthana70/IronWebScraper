@@ -10,6 +10,9 @@ namespace WebScraerWithIronWebScraper
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("In Main");
+            var scraper = new ScrapeStocks();
+            scraper.Start();
         }
     }
 }
