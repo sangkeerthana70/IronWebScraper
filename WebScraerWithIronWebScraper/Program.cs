@@ -10,9 +10,14 @@ namespace WebScraerWithIronWebScraper
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("In Main");
-            var scraper = new ScrapeStocks();
-            scraper.Start();
+            //System.Console.WriteLine("In Main scraping CNN money");
+            //var scraper = new ScrapeStocksFromCNN();
+            //scraper.Start();
+
+            Console.WriteLine("In main scraping NASDAQ");
+
+            var scrapeMyHoldings = new ScrapeTopHadlines();
+            scrapeMyHoldings.Start();
         }
     }
 }
