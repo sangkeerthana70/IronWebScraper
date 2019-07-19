@@ -14,7 +14,7 @@ namespace WebScraerWithIronWebScraper
             //var scraper = new ScrapeStocksFromCNN();
             //scraper.Start();
 
-            Console.WriteLine("In main scraping NASDAQ");
+            Console.WriteLine("In main scraping headlines");
 
             var scrapeMyHoldings = new ScrapeTopHadlines();
             scrapeMyHoldings.Start();
